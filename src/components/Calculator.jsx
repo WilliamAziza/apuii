@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Calculator extends Component {
   constructor() {
     super();
@@ -44,7 +43,7 @@ class Calculator extends Component {
           <button onClick={() => this.handleClick('7')}>7</button>
           <button onClick={() => this.handleClick('8')}>8</button>
           <button onClick={() => this.handleClick('9')}>9</button>
-          <button onClick={() => this.handleClick('*')}>*</button>
+          <button onClick={() => this.handleClick('*')}>x</button>
           <button onClick={() => this.handleClick('0')}>0</button>
           <button onClick={() => this.handleClick('.')}>.</button>
           <button onClick={() => this.handleClick('/')}>/</button>
