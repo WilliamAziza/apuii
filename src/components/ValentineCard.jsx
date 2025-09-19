@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import ReactModal from 'react-modal';
-``
+import Modal from 'react-modal';
 
 const ValentineCard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
