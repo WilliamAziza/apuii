@@ -1,3 +1,30 @@
+/* E-commerce Styles */
+.App {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.product-card {
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.checkout-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Legacy Calculator Styles (if needed) */
 .calculator {
   width: 300px;
   margin: 0 auto;

@@ -7,7 +7,7 @@
 - [x] Create `src/components/ProductItem.jsx` for individual product cards
 - [x] Create `src/components/Cart.jsx` for cart view with items, totals, and checkout button
 - [x] Create `src/components/Checkout.jsx` for user form and Paystack integration
-- [ ] Update `src/App.js` to use new components and navigation state
-- [ ] Update `src/styles.css` with custom e-commerce styles
+- [x] Update `src/App.js` to use new components and navigation state
+- [x] Update `src/styles.css` with custom e-commerce styles
 - [ ] Test the app locally with `npm start` to verify functionality
 - [ ] Final verification: Ensure products display, cart works, checkout integrates Paystack
