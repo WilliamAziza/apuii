@@ -47,7 +47,7 @@ const Checkout = ({ setView }) => {
     <div>
       <h2>Checkout</h2>
       {error && <Alert variant="danger">{error}</Alert>}
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="checkout-form">
         <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
           <Form.Control

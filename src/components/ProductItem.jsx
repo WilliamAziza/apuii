@@ -6,7 +6,7 @@ const ProductItem = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <Card className="h-100">
+    <Card className="h-100 product-card">
       <Card.Img variant="top" src={product.image} alt={product.name} />
       <Card.Body className="d-flex flex-column">
         <Card.Title>{product.name}</Card.Title>

@@ -14,10 +14,10 @@ const Cart = ({ setView }) => {
         <>
           <ListGroup>
             {cart.map((item) => (
-              <ListGroup.Item key={item.id}>
+              <ListGroup.Item key={item.id} className="cart-item">
                 <Row>
                   <Col md={2}>
-                    <img src={item.image} alt={item.name} style={{ width: '50px' }} />
+                    <img src={item.image} alt={item.name} />
                   </Col>
                   <Col md={4}>
                     <strong>{item.name}</strong>
