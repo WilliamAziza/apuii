@@ -1,25 +1,26 @@
 
 import React, { useState } from 'react';
 import { Container, Navbar, Nav, Badge, Form, Button } from 'react-bootstrap';
-import { CartProvider, useCart } from './context/CartContext';
+import { CartProvider, useCart, ThemeProvider, useTheme } from './context/CartContext';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import './styles.css';
 
 const Header = ({ view, setView, cartCount }) => {
+  const { isDarkMode, toggleTheme } = useTheme();
   return (
-    <Navbar bg="warning" variant="light" expand="lg" className="shadow-sm">
+    <Navbar bg="primary" variant="dark" expand="lg" className="shadow-sm">
       <Container>
-        <Navbar.Brand onClick={() => setView('home')} style={{ cursor: 'pointer', fontWeight: 'bold', color: '#333' }}>
+        <Navbar.Brand onClick={() => setView('home')} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
           🛍️ Clothes & Bags Store
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={() => setView('home')} className="text-dark">Home</Nav.Link>
-            <Nav.Link onClick={() => setView('cart')} className="text-dark">
-              🛒 Cart <Badge bg="danger">{cartCount}</Badge>
+            <Nav.Link onClick={() => setView('home')}>Home</Nav.Link>
+            <Nav.Link onClick={() => setView('cart')}>
+              🛒 Cart <Badge bg="light" text="dark">{cartCount}</Badge>
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
@@ -29,7 +30,10 @@ const Header = ({ view, setView, cartCount }) => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-dark">Search</Button>
+            <Button variant="outline-light" className="me-2">Search</Button>
+            <Button variant="outline-light" onClick={toggleTheme}>
+              {isDarkMode ? '☀️ Light' : '🌙 Dark'}
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
@@ -54,8 +58,9 @@ function AppContent() {
     }
   };
 
+  const { isDarkMode } = useTheme();
   return (
-    <div className="App">
+    <div className="App" data-theme={isDarkMode ? 'dark' : 'light'}>
       <Header view={view} setView={setView} cartCount={getCartCount()} />
       <Container className="mt-4">
         {renderView()}
@@ -72,9 +77,11 @@ function AppContent() {
 
 function App() {
   return (
-    <CartProvider>
-      <AppContent />
-    </CartProvider>
+    <ThemeProvider>
+      <CartProvider>
+        <AppContent />
+      </CartProvider>
+    </ThemeProvider>
   );
 }
 
