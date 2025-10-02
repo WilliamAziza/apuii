@@ -32,7 +32,7 @@ button {
   padding: 10px 15px;
   font-size: 16px;
   border: none;
-  background-color: #007bff;
+  background-color: #ff6600;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
@@ -40,11 +40,11 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #e55a00;
 }
 
 button:active {
-  background-color: #003d80;
+  background-color: #cc5200;
 }
 
 /* Legacy Calculator Styles (if needed) */

@@ -6,17 +6,20 @@ const ProductItem = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <Card className="h-100 product-card">
-      <Card.Img variant="top" src={product.image} alt={product.name} />
+    <Card className="h-100 product-card border-0 shadow-sm">
+      <Card.Img variant="top" src={product.image} alt={product.name} className="img-fluid" />
       <Card.Body className="d-flex flex-column">
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>${product.price}</Card.Text>
+        <Card.Title className="text-truncate">{product.name}</Card.Title>
+        <div className="mb-2">
+          <span className="text-warning">★★★★★</span> (4.5)
+        </div>
+        <Card.Text className="fw-bold text-danger fs-5">${product.price}</Card.Text>
         <Button
-          variant="primary"
-          className="mt-auto"
+          variant="warning"
+          className="mt-auto w-100"
           onClick={() => addToCart(product)}
         >
-          Add to Cart
+          🛒 Add to Cart
         </Button>
       </Card.Body>
     </Card>

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
+import { Container, Navbar, Nav, Badge, Form, Button } from 'react-bootstrap';
 import { CartProvider, useCart } from './context/CartContext';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
@@ -9,17 +9,29 @@ import './styles.css';
 
 const Header = ({ view, setView, cartCount }) => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="warning" variant="light" expand="lg" className="shadow-sm">
       <Container>
-        <Navbar.Brand onClick={() => setView('home')} style={{ cursor: 'pointer' }}>
-          Clothes & Bags Store
+        <Navbar.Brand onClick={() => setView('home')} style={{ cursor: 'pointer', fontWeight: 'bold', color: '#333' }}>
+          🛍️ Clothes & Bags Store
         </Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link onClick={() => setView('home')}>Home</Nav.Link>
-          <Nav.Link onClick={() => setView('cart')}>
-            Cart <Badge bg="secondary">{cartCount}</Badge>
-          </Nav.Link>
-        </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link onClick={() => setView('home')} className="text-dark">Home</Nav.Link>
+            <Nav.Link onClick={() => setView('cart')} className="text-dark">
+              🛒 Cart <Badge bg="danger">{cartCount}</Badge>
+            </Nav.Link>
+          </Nav>
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search products..."
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-dark">Search</Button>
+          </Form>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
@@ -48,6 +60,12 @@ function AppContent() {
       <Container className="mt-4">
         {renderView()}
       </Container>
+      <footer className="bg-dark text-light text-center py-4 mt-5">
+        <Container>
+          <p>&copy; 2023 Clothes & Bags Store. All rights reserved.</p>
+          <p>Fast delivery | Secure payments | 24/7 support</p>
+        </Container>
+      </footer>
     </div>
   );
 }
