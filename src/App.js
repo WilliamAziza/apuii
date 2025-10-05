@@ -10,31 +10,31 @@ import './styles.css';
 const Header = ({ view, setView, cartCount }) => {
   const { isDarkMode, toggleTheme } = useTheme();
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" className="shadow-sm">
+    <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm">
       <Container>
-        <Navbar.Brand onClick={() => setView('home')} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
-          🛍️ Clothes & Bags Store
+        <Navbar.Brand onClick={() => setView('home')} style={{ cursor: 'pointer', fontWeight: 'bold', fontSize: '1.5rem' }}>
+          🛒 Clothes & Bags Store
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={() => setView('home')}>Home</Nav.Link>
             <Nav.Link onClick={() => setView('cart')}>
-              🛒 Cart <Badge bg="light" text="dark">{cartCount}</Badge>
+              🛒 Cart <Badge bg="warning" text="dark">{cartCount}</Badge>
             </Nav.Link>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex flex-grow-1" style={{ maxWidth: '400px' }}>
             <Form.Control
               type="search"
               placeholder="Search products..."
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-light" className="me-2">Search</Button>
-            <Button variant="outline-light" onClick={toggleTheme}>
-              {isDarkMode ? '☀️ Light' : '🌙 Dark'}
-            </Button>
+            <Button variant="warning" className="me-2">Search</Button>
           </Form>
+          <Button variant="outline-light" onClick={toggleTheme}>
+            {isDarkMode ? '☀️ Light' : '🌙 Dark'}
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
