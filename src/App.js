@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Container, Navbar, Nav, Badge, Form, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, Badge, Form, Button, Row, Col } from 'react-bootstrap';
 import { CartProvider, useCart, ThemeProvider, useTheme } from './context/CartContext';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
@@ -65,10 +65,49 @@ function AppContent() {
       <Container className="mt-4">
         {renderView()}
       </Container>
-      <footer className="bg-dark text-light text-center py-4 mt-5">
+      <footer>
         <Container>
-          <p>&copy; 2023 Clothes & Bags Store. All rights reserved.</p>
-          <p>Fast delivery | Secure payments | 24/7 support</p>
+          <Row>
+            <Col md={3}>
+              <h5>Get to Know Us</h5>
+              <ul>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About Clothes & Bags</a></li>
+                <li><a href="#">Investor Relations</a></li>
+              </ul>
+            </Col>
+            <Col md={3}>
+              <h5>Make Money with Us</h5>
+              <ul>
+                <li><a href="#">Sell products on our site</a></li>
+                <li><a href="#">Become an Affiliate</a></li>
+                <li><a href="#">Advertise Your Products</a></li>
+              </ul>
+            </Col>
+            <Col md={3}>
+              <h5>Amazon Payment Products</h5>
+              <ul>
+                <li><a href="#">Shop with Points</a></li>
+                <li><a href="#">Reload Your Balance</a></li>
+                <li><a href="#">Currency Converter</a></li>
+              </ul>
+            </Col>
+            <Col md={3}>
+              <h5>Let Us Help You</h5>
+              <ul>
+                <li><a href="#">Your Account</a></li>
+                <li><a href="#">Your Orders</a></li>
+                <li><a href="#">Shipping Rates & Policies</a></li>
+                <li><a href="#">Returns & Replacements</a></li>
+                <li><a href="#">Help</a></li>
+              </ul>
+            </Col>
+          </Row>
+          <div className="copyright">
+            <p>&copy; 2023 Clothes & Bags Store. All rights reserved.</p>
+            <p>Conditions of Use | Privacy Notice | Interest-Based Ads</p>
+          </div>
         </Container>
       </footer>
     </div>
